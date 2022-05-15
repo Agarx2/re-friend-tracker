@@ -46,8 +46,8 @@ export class GuiModel {
                             "id": "activity",
                             "type": "autocomplete",
                             "name": "Activity",
-                            "url": "/friend/:friendKey/activity",
-                            "form": "ActivityForm",
+                            "url": "/activity",
+                            "form": "AddActivityForm",
                             "width": 2
                         },
                         {
@@ -154,6 +154,20 @@ export class GuiModel {
                             "required": true
                         },
                         {
+                            "id": "creationDate",
+                            "type": "date",
+                            "name": "CreationDate",
+                            "width": 2,
+                            "required": true
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "required": true
+                        },
+                        {
                             "type": "deleteButton",
                             "name": "Delete"
                         },
@@ -186,6 +200,15 @@ export class GuiModel {
                             "url": "/location",
                             "form": "LocationForm",
                             "width": 2
+                        },
+                        {
+                            "id": "friends",
+                            "type": "autocomplete",
+                            "name": "Friends",
+                            "width": 2,
+                            "required": true,
+                            "form": "FriendForm",
+                            "url": "/friend"
                         },
                         {
                             "type": "deleteButton",
@@ -254,12 +277,36 @@ export class GuiModel {
                             }
                         },
                         {
+                            "type": "list",
+                            "icon": "fa-user",
+                            "color": "blue",
+                            "search": true,
+                            "url": "/friend",
+                            "page": "friendpage"
+                        },
+                    ]
+                },
+                {
+                    "id": "friendpage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "button",
+                            "name": "EditFriend",
+                            "color": "blue",
+                            "form": {
+                                "form": "FriendForm"
+                            }
+                        },
+                        {
                             "type": "newButton",
                             "name": "NewActivity",
                             "icon": "fa-bowling-ball-pin",
                             "color": "red",
                             "form": {
-                                "form": "ActivityForm"
+                                "form": "AddActivityForm"
                             }
                         },
                         {
@@ -267,7 +314,7 @@ export class GuiModel {
                             "icon": "fa-user",
                             "color": "blue",
                             "search": true,
-                            "url": "/friend",
+                            "url": "/friend/:friendkey/activity",
                             "form": {
                                 "form": "AddActivityForm"
                             }
@@ -341,7 +388,7 @@ export class GuiModel {
                             "icon": "fa-bowling-ball-pin",
                             "color": "red",
                             "form": {
-                                "form": "ActivityForm"
+                                "form": "AddActivityForm"
                             }
                         },
                         {
@@ -351,7 +398,7 @@ export class GuiModel {
                             "search": true,
                             "url": "/activity",
                             "form": {
-                                "form": "ActivityForm"
+                                "form": "AddActivityForm"
                             }
                         },
                     ]
