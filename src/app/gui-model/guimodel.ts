@@ -123,7 +123,7 @@ export class GuiModel {
                             "name": "Activity",
                             "url": "/activity",
                             "defaultKey": "activityKey",
-                            "readonly": true,
+                            //"readonly": true,
                             "form": "ActivityForm",
                             "width": 2
                         },
@@ -254,10 +254,10 @@ export class GuiModel {
                         },
                         {
                             "type": "button",
-                            "name": "Activity",
+                            "name": "Activities",
                             "icon": "fa-bowling-ball-pin",
                             "color": "red",
-                            "page": "activitypage",
+                            "page": "activitiespage",
                         },
                     ]
                 },
@@ -316,7 +316,7 @@ export class GuiModel {
                             "search": true,
                             "url": "/friend/:friendkey/activity",
                             "form": {
-                                "form": "AddActivityForm"
+                                "form": "ActivityForm"
                             }
                         },
                     ]
@@ -343,8 +343,32 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/location",
+                            "page": "locationpage"
+                        },
+                    ]
+                },
+                {
+                    "id": "locationpage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "button",
+                            "name": "EditLocation",
+                            "color": "blue",
                             "form": {
                                 "form": "LocationForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-user",
+                            "color": "blue",
+                            "search": true,
+                            "url": "/location/:locationKey/activity",
+                            "form": {
+                                "form": "ActivityForm"
                             }
                         },
                     ]
@@ -377,7 +401,7 @@ export class GuiModel {
                     ]
                 }, 
                 {
-                    "id": "activitypage",
+                    "id": "activitiespage",
                     "elementList": [
                         {
                             "type": "backbutton",
@@ -388,7 +412,7 @@ export class GuiModel {
                             "icon": "fa-bowling-ball-pin",
                             "color": "red",
                             "form": {
-                                "form": "AddActivityForm"
+                                "form": "ActivityForm"
                             }
                         },
                         {
@@ -397,6 +421,39 @@ export class GuiModel {
                             "color": "red",
                             "search": true,
                             "url": "/activity",
+                            "page": "activitypage"
+                        },
+                    ]
+                }, 
+                {
+                    "id": "activitypage",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "button",
+                            "name": "EditActivity",
+                            "color": "blue",
+                            "form": {
+                                "form": "ActivityForm"
+                            }
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "NewFriend",
+                            "icon": "fa-bowling-ball-pin",
+                            "color": "red",
+                            "form": {
+                                "form": "FriendForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-bowling-ball-pin",
+                            "color": "red",
+                            "search": true,
+                            "url": "/activity/:activityKey/friend",
                             "form": {
                                 "form": "AddActivityForm"
                             }
